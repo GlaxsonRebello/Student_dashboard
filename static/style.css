@@ -1,0 +1,74 @@
+/* General Page Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    border-radius: 0 0 12px 12px;
+}
+
+/* Cards */
+.card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    background: #fff;
+    transition: 0.3s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Login & Register Centering */
+.card.col-md-4 {
+    margin-top: 100px;
+}
+
+/* Dashboard Status Badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.status-yes {
+    background: #28a745;
+    color: white;
+}
+.status-no {
+    background: #dc3545;
+    color: white;
+}
+.status-pending {
+    background: #ffc107;
+    color: black;
+}
+
+/* Admin Table */
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.table thead {
+    background: #343a40;
+    color: white;
+}
+.table td, .table th {
+    vertical-align: middle;
+}

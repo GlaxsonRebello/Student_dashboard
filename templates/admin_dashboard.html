@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Admin Dashboard</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th><th>Email</th><th>Registered</th>
+            <th>Paid</th><th>Form Accepted</th>
+            <th>Reg Date</th><th>Pay Date</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.email }}</td>
+            <td><span class="status-badge {{ 'status-yes' if s.is_registered else 'status-no' }}">
+                {{ 'Yes' if s.is_registered else 'No' }}</span></td>
+            <td><span class="status-badge {{ 'status-yes' if s.is_paid else 'status-no' }}">
+                {{ 'Yes' if s.is_paid else 'No' }}</span></td>
+            <td><span class="status-badge {{ 'status-yes' if s.is_form_accepted else 'status-pending' }}">
+                {{ 'Yes' if s.is_form_accepted else 'Pending' }}</span></td>
+            <td>{{ s.registration_date }}</td>
+            <td>{{ s.payment_date if s.payment_date else '---' }}</td>
+            <td>
+                <form method="post" class="d-inline">
+                    <input type="hidden" name="student_id" value="{{ s.student_id }}">
+                    <button name="action" value="paid" class="btn btn-sm btn-success">Mark Paid</button>
+                </form>
+                <form method="post" class="d-inline">
+                    <input type="hidden" name="student_id" value="{{ s.student_id }}">
+                    <button name="action" value="accept" class="btn btn-sm btn-primary">Accept Form</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
